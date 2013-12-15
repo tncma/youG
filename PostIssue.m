@@ -7,7 +7,8 @@
 //
 
 #import "PostIssue.h"
-
+#import <Parse/Parse.h>
+@class Parse;
 @interface PostIssue ()
 
 @end
@@ -34,5 +35,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)postIssue:(id)sender
+{
+    PFObject *issue = [PFObject objectWithClassName:@"Issues"];
+    issue[@"issue"] = textView.text;
+    [issue saveInBackground];
+}
 @end

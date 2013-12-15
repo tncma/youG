@@ -10,4 +10,10 @@
 
 @interface TimeLine : UIViewController
 
+{
+    NSArray *parseArray;
+
+    IBOutlet UITextView *txtView;
+    NSString *nst;
+}
 @end

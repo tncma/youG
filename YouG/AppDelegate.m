@@ -11,23 +11,25 @@
 #import "graphController.h"
 #import "tabbarcontroller.h"
 #import "PostIssue.h"
+#import "TimeLine.h"
 
 @implementation AppDelegate
 @synthesize graphObj= _graphObj;
 @synthesize tab = _tab ;
 @synthesize post = _post;
+@synthesize timez = _timez;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"CTJZZADhJcRu1sOAoL95i0OvUIgKKzcgCNg8qZjJ"
-                  clientKey:@"CTJZZADhJcRu1sOAoL95i0OvUIgKKzcgCNg8qZjJ"];
+                  clientKey:@"TniUagZKcAePINXymNynleg0kPl9QtegbsMqGyc1"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     _graphObj = [[graphController alloc]initWithNibName:@"graphController" bundle:Nil];
     _post     = [[PostIssue alloc]initWithNibName:@"PostIssue" bundle:nil];
 
-    
+    _timez = [[TimeLine alloc]initWithNibName:@"TimeLine" bundle:nil];
     _tab     = [[tabbarcontroller alloc]initWithNibName:@"tabbarcontroller" bundle:nil];
-    NSArray *ary = [[NSArray alloc]initWithObjects:_graphObj,_post,nil];
+    NSArray *ary = [[NSArray alloc]initWithObjects:_graphObj,_post,_timez,nil];
     _tab.viewControllers = ary;
     // Override point for customization after application launch.
     self.window.rootViewController = _tab;

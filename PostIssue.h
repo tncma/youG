@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface PostIssue : UIViewController
+@interface PostIssue : UIViewController<UITextFieldDelegate>
+
+{
+    IBOutlet UIButton *postBtn;
+    IBOutlet UITextView *textView;
+}
+-(IBAction)postIssue:(id)sender;
 
 @end
